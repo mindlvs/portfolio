@@ -5,6 +5,81 @@
 *{
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root{
+    --font-primary: "Bebas Neue", serif;
+    --font-secundary: "Nixie One", serif;
+    --font-action: "Bebas Neue", serif;
+}
+
+.hamburguer{
+    /*background-color: red;*/
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100;
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.show-menu .hamburguer{
+    right: 16rem;
+}
+
+.line{
+    width: 100%;
+    height: .1rem;
+    background-color: #ffffff;
+    box-shadow: 0.1rem 0.1rem 1px #000;
+    transition: transform 1s;
+}
+
+.show-menu #line1{
+    transform: rotate(45deg) translate(0.1rem, +.4rem);
+}
+
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menu #line3{
+    transform: rotate(-45deg) translate(0.1rem, -.7rem);
+}
+
+.hamburguer span{
+    position: absolute;
+    left: 3rem;
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF0099;
+    color: #ffffff;
+    font-family: var(--font-action);
+    opacity: 0;
+}
+
+.hamburguer span::before{
+    content: "";
+    position: absolute;
+    border-right: .5rem solid #FF0099;
+    border-top: .5rem solid transparent;
+    border-left: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    left: -1rem;
+}
+
+.show-menu .hamburguer:hover span{
+    opacity: 1;
 }
 
 header{
@@ -47,7 +122,7 @@ header{
 .banner h1{
     color: #ffffff;
     font-size: 5rem;
-    font-family: "Bebas Neue", serif;
+    font-family: var(--font-primary);
     font-weight: 200;
     text-shadow: .3rem .4rem 2px rgba(0,0,.4);
     line-height: 5rem;
@@ -57,7 +132,7 @@ header{
 }
 
 .banner p{
-    font-family: "Nixie One", serif;
+    font-family: var(--font-secundary);
     color: #ffffff;
     font-size: 1.5rem;
     text-shadow: .1rem .2rem 2px rgba(0,0,0);
@@ -68,7 +143,7 @@ header{
 }
 
 .banner button{
-    font-family: "Bebas Neue", serif;
+    font-family: var(--font-action);
     color: #ffffff;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -97,4 +172,68 @@ header{
         transform: translateY(0) rotateY(0);
         opacity: 1;
     }
+}
+
+.sidebar{
+    width: 20rem;
+    height: 100vh;
+    background-color: #ffffff;
+    opacity: 90%;
+    position: fixed;
+    top: 0;
+    right: -20rem;
+    transition: all 1s;
+}
+
+.show-menu .sidebar{
+    right: 0;
+}
+
+.menu {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-item{
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.menu-link{
+    font-family: var(--font-action);
+    font-size: 2rem;
+    color: #FF0099;
+    transition: color 1s;
+}
+
+.menu-link:hover{
+    color: #f4c4f3;
+}
+
+.social-media{
+    /*background-color: red;*/
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-media i{   
+    color: #434343;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: opacity .8s;
+}
+
+.social-media i:hover{
+    cursor: pointer;
+    opacity: 80%;
 }
